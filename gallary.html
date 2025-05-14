@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>memories</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
+  <a href="gallary.html"><img src="fotosiara/IMG-20250514-WA0026.jpg" alt="I&K" style="height: 70px;"></a>
+  <div></div>
+
+  <!-- Right side: Logo/Text -->
+  <a href="index.html">
+    <span style="font-size: 1.2em; margin-right: 0;">Sobre a gente</span>
+  </a>
+</header>
+<body>
+    <style>
+       
+        h1 {
+          text-align: center;
+          padding: 20px 0;
+        }
+        /* Gallery grid styling */
+        .gallery {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+          gap: 10px;
+          padding: 10px;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        .gallery img {
+      width: 100%;
+      display: block;
+      cursor: pointer;
+      border: 2px solid #ddd;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      border-color: #bbb;
+    }
+    /* Lightbox modal styling */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>NOSSAS MEMÓRIAS</h1>
+
+  <!-- Gallery Grid -->
+  <div class="galeria">
+    <img src="fotosiara/IMG-20250514-WA0026.jpg" alt="Image 1">
+    <h2> 26.01.2025 </h2>
+    <img src="fotosiara/IMG-20250514-WA0001.jpg" alt="Image 2">
+    <h2> 09.10.2023 </h2>
+    <img src="fotosiara/IMG-20250514-WA0002.jpg" alt="Image 3">
+    <h2> 24.11.2023 </h2>
+    <img src="fotosiara/IMG-20250514-WA0003.jpg" alt="Image 4">
+    <h2> 04.06.2023 </h2>
+    <h3>o tempo ta passando muito rápidooo</h3>
+    <img src="fotosiara/IMG-20250514-WA0004.jpg" alt="Image 6">
+    <img src="fotosiara/IMG-20250514-WA0005.jpg" alt="Image 5">
+    <img src="fotosiara/IMG-20250514-WA0006.jpg" alt="Image 6">
+    <img src="fotosiara/IMG-20250514-WA0007.jpg" alt="Image 6">
+    <h2> 25.11.2023 </h2>
+    <img src="fotosiara/IMG-20250514-WA0008.jpg" alt="Image 6">
+    <h2> 04.06.2023 </h2>
+    <img src="fotosiara/IMG-20250514-WA0009.jpg" alt="Image 6">
+    <h2> 25.03.2024 </h2>
+    <img src="fotosiara/IMG-20250514-WA0010.jpg" alt="Image 6">
+    <h2> 31.12.2023 </h2>
+    <img src="fotosiara/IMG-20250514-WA0011.jpg" alt="Image 6">
+    <h2> 26.03.2024 </h2>
+    <img src="fotosiara/IMG-20250514-WA0012.jpg" alt="Image 6">
+    <h2> 11.05.2024 </h2>
+    <img src="fotosiara/IMG-20250514-WA0014.jpg" alt="Image 6">
+    <h2> 18.05.2024 </h2>
+    <h3> acho q a data ta erradakkkkkk </h3>
+    <img src="fotosiara/IMG-20250514-WA0015.jpg" alt="Image 6">
+    <h2> 12.06.2024 </h2>
+    <img src="fotosiara/IMG-20250514-WA0016.jpg" alt="Image 6">
+    <h2> nao sei aaaa </h2>
+    <img src="fotosiara/IMG-20250514-WA0017.jpg" alt="Image 6">
+    <h2> 25.06.2024 </h2>
+    
+  </div>
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <span id="lightboxClose" class="lightbox-close">&times;</span>
+    <img id="lightboxImg" src="" alt="Enlarged Image">
+  </div>
+
+  <script>
+    // Select all the gallery images and necessary modal elements.
+    const galleryImages = document.querySelectorAll('.gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    // When any gallery image is clicked, display the lightbox and update its content.
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+
+    // Close the lightbox when the close button is clicked.
+    lightboxClose.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+    // Also close the lightbox if the user clicks outside the image.
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    });
+
+    window.addEventListener('load', function () {
+      // Create an audio element
+      const backgroundAudio = document.createElement('audio');
+      backgroundAudio.src = 'audio/WhatsApp Audio 2025-02-16 at 18.53.01_f813c0e5.mp3'; // Replace with your audio file path
+      backgroundAudio.loop = true;
+
+      // Append the audio element to the document body (optional: if you want to manipulate it later)
+      document.body.appendChild(backgroundAudio);
+
+      // Attempt to start playback
+      // Many browsers restrict autoplay; if auto-play is blocked, consider a user-initiated event.
+      backgroundAudio.play().catch(function (error) {
+        console.error("Autoplay prevented. Consider adding a user action to start the audio:", error);
+      });
+    });
+  </script>
+</body>
+</html>
